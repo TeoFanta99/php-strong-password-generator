@@ -7,18 +7,21 @@
 </head>
 <body>
 
-<br>
-
-<?php 
-	$length = $_GET['length'];
-	echo 'La password è lunga ' . $length . '  caratteri';
-?>
-
-<br>
-<br>
+<?php
+    session_start();
+    if(isset($_GET['length'])) {
+      $length = $_GET['length'];
+      $_SESSION["password"] = getPassword($length);
+      header('Location: ./yourpassword.php');
+    }
+  ?>
+    
+</body>
+</html>
 
 <?php
 	function getPassword ($length) {
+        $length = $_GET['length'];
 		$caratteri = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}|[]';
 		$password = '';
 		
@@ -30,6 +33,3 @@
 
 	echo getPassword($length);
 ?>
-    
-</body>
-</html>
