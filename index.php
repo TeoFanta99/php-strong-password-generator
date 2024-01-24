@@ -16,29 +16,8 @@
     </form>
 
 	<?php 
-	$length = $_GET['length'];
-	echo 'La password è lunga ' . $length . '  caratteri'; ?> 
-	
-	<br>
-	<br>
-
-	<?php 
-	function getPassword ($length) {
-		$caratteri = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}|[]';
-		$password = '';
-		
-		for ($i = 0; $i < $length; $i++) {
-			$password .= $caratteri[rand(0, strlen($caratteri) -1)];
-		}
-		return $password;
-	}
-
-	echo getPassword($length);
-
+		include __DIR__ . "/functions.php"
 	?>
-
-
-
 
 </body>
 </html>
